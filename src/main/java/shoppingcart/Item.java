@@ -40,9 +40,10 @@ public class Item {
 
 		return price;
 	}
+
 	public double getItemTotalPrice() {
 
-		return quantity*price;
+		return quantity * price;
 	}
 
 }

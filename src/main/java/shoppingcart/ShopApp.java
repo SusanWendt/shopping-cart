@@ -22,10 +22,10 @@ public class ShopApp {
 		while (!option.equalsIgnoreCase("3")) {
 
 			System.out.println("ShoppingCart options:");
-			System.out.println("add item: enter '1'");
-			System.out.println("remove item: enter '2'");
-			System.out.println("quit: enter '3'");
-			System.out.println("continyue shopping: type 'y'");
+			System.out.println("Add item: enter '1'");
+			System.out.println("Remove item: enter '2'");
+			System.out.println("Quit: enter '3'");
+			// System.out.println("continyue shopping: type 'y'");
 			option = input.nextLine();
 
 			String newItemName;
@@ -62,7 +62,7 @@ public class ShopApp {
 			if (option.equals("3")) {
 				System.out.println("Goodbye");
 				input.close();
-//				System.exit(0);
+				// System.exit(0);
 			}
 		}
 	}
