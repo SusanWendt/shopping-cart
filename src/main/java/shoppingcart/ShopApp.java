@@ -14,18 +14,25 @@ public class ShopApp {
 
 		Cart myCart = new Cart();
 
-		System.out.println("Would you like to add or remove an item to your shopping cart? (add/remove/quit).");
-		String choice = input.nextLine();
+		System.out.println("Welcome to ShoppingCart!");
+		System.out.println("Press enter for options.");
 
-		while (!choice.equalsIgnoreCase("quit")) {
+		String option = input.nextLine();
+
+		while (!option.equalsIgnoreCase("3")) {
+
+			System.out.println("ShoppingCart options:");
+			System.out.println("add item: enter '1'");
+			System.out.println("remove item: enter '2'");
+			System.out.println("quit: enter '3'");
+			System.out.println("continyue shopping: type 'y'");
+			option = input.nextLine();
+
 			String newItemName;
 			int newItemQuantity;
 			double newItemPrice;
 
-		
-			switch (choice) {
-			case "add":
-
+			if (option.equals("1")) {
 				System.out.println("Please enter the name of the item you would like to add to your cart:");
 				newItemName = input.nextLine();
 
@@ -34,22 +41,29 @@ public class ShopApp {
 
 				System.out.println("Please enter the price of that item:");
 				newItemPrice = input.nextDouble();
-				input.nextLine();
 
 				myCart.addItem(new Item(newItemName, newItemQuantity, newItemPrice));
-				System.out.println("Current Cart");
+				System.out.println("Current Cart Contents");
 				myCart.showCartContents();
 				System.out.println(
 						"Total cart price: " + currencyFormatter.format(myCart.getTotalCartPrice()) + " at checkout.");
-				break;
-			case "remove":
+				option = input.nextLine();
+			}
+			if (option.equals("2")) {
+				String name;
 				System.out.println("type the name of the item that you would like to remove");
-			default:
-				System.out.println("Would you like to continue shopping? (y/n)");
-				choice = input.nextLine();
+				name = input.nextLine();
+				myCart.removeItem(name);
+				System.out.println("Current Cart Contents");
+				myCart.showCartContents();
+				System.out.println(
+						"Total cart price: " + currencyFormatter.format(myCart.getTotalCartPrice()) + " at checkout.");
+			}
+			if (option.equals("3")) {
+				System.out.println("Goodbye");
+				input.close();
+//				System.exit(0);
 			}
 		}
-		System.out.println("Goodbye");
-		input.close();
 	}
 }

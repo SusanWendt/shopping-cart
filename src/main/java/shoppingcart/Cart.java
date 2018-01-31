@@ -10,9 +10,12 @@ public class Cart {
 
 	}
 
-	public void removeItem(Item item) {
-		items.remove(item);
-
+	public void removeItem(String name) {
+		for (int i = items.size()-1; i >=0; i--) {
+			if (items.get(i).getName().equals(name)) {
+				items.remove(i);
+			}
+		}
 	}
 
 	public int listSize() {
